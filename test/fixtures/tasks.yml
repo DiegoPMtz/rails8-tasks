@@ -1,0 +1,26 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Lavar los platos
+  description: Se deben lavar los platos de la cena
+  status: not_started
+
+two:
+  title: Regar el pasto
+  description: Regar el pasto por la mañana
+  status: not_started
+
+three:
+  title: Hacer la cama
+  description: Hacer la cama antes de salir de casa
+  status: not_started
+
+four:
+  title: Saca la basura
+  description: Saca la basura antes de las 8:00 pm
+  status: completed
+
+five:
+  title: Lavar la ropa
+  description: Lavar la ropa antes del fin de semana
+  status: completed

@@ -1,1 +1,6 @@
-<h1>Tasks</h1>
+<div class="title">Tasks</div>
+
+<% @tasks.each do |task|%>
+    <%= render "tasks", locales: {task: task}%>
+<% end %>
+

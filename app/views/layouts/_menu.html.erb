@@ -1,0 +1,38 @@
+<nav data-controller="menu" class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to root_path do %>
+        <figure class="image is-48x48 ml-2">
+            <%= image_tag("logo.jpg")%>
+        </figure>
+    <% end %>
+  
+    <a data-menu-target="item" class="navbar-burger" aria-expanded="false" data-action="click->menu#showMenu" >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div data-menu-target="item" id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to "Tasks", tasks_path, class: "navbar-item" %>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

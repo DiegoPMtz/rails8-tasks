@@ -1,11 +1,15 @@
 <%= form_with(model: @task, local: true) do |f| %>
     <div class="field">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "input" %>
+        <%= f.label :title , class: "label"%>
+        <div class="control">
+            <%= f.text_field :title, class: "input" %>
+        </div>
     </div>
     <div class="field">
-        <%= f.label :description %>
-        <%= f.text_area :description, class: "textarea" %>
+        <%= f.label :description, class:"label" %>
+        <div class="control">
+            <%= f.text_area :description, class: "textarea" %>
+        </div>
     </div>
     <div class="field">
         <%= f.submit "Save", class: "button is-primary" %>

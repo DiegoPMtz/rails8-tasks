@@ -1,6 +1,6 @@
 <div class="title">Tasks</div>
-
-<% @tasks.each do |task|%>
-    <%= render "tasks", locales: {task: task}%>
-<% end %>
+<%= link_to "New Task", new_task_path, class: "button is-primary mb-5" %>
+<div class="columns is-2-tablet is-multiline is-tablet">
+    <%= render @tasks %>
+</div>
 

@@ -15,13 +15,30 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to task_path(@task)
+      respond_to do |format|
+        format.html { redirect_to task_path(@task) }
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.append(
+            "list",
+            partial: "tasks/task",
+            locals: { task: @task })
+          }
+      end
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream {
+        render turbo_stream: turbo_stream.replace(
+          dom_id(@task),
+          partial: "tasks/form",
+          locals: { task: @task })
+        }
+    end
   end
 
   def update

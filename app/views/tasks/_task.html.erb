@@ -1,17 +1,14 @@
-<div class="column is-one-third-desktop is-half-tablet">
-  <div class="card mx-5">
-    <header class="card-header">
-      <p class="card-header-title"><%= task.title%></p>
-    </header>
-    <div class="card-content">
-      <div class="content subtitle is-4">
-        <%= task.description.truncate(25)%>
-      </div>
+<div class="card mx-5">
+  <header class="card-header">
+    <p class="card-header-title"><%= task.title%></p>
+  </header>
+  <div class="card-content">
+    <div class="content subtitle is-4">
+      <%= task.description%>
     </div>
-    <footer class="card-footer">
-      <%= link_to "Edit", edit_task_path(task), class: "card-footer-item" %>
-      <%= link_to "Show", task, class: "card-footer-item" %>
-      <%= link_to "Delete", task, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-footer-item" %>
-    </footer>
   </div>
+  <footer class="card-footer">
+    <%= link_to "Edit", edit_task_path(task), data: {turbo_frame: dom_id(task)}, class: "card-footer-item" %>
+    <%= link_to "Delete", task, data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "card-footer-item" %>
+  </footer>
 </div>

@@ -1,6 +1,19 @@
 <div class="title">Tasks</div>
-<%= link_to "New Task", new_task_path, class: "button is-primary mb-5" %>
-<div class="columns is-2-tablet is-multiline is-tablet">
-    <%= render @tasks %>
-</div>
+<%= turbo_stream_from "tasks" %>
+
+<%= turbo_frame_tag "task_form" do %>
+    <%= link_to "New Task", new_task_path, class: "button is-primary mb-5" %>
+<% end %>
+
+<%= turbo_frame_tag "tasks_list" do %>
+    <div id="list" class="columns is-2-tablet is-multiline is-tablet">
+        <% @tasks.each do |task| %>
+            <div class="column is-one-third-desktop is-half-tablet">
+                <%= turbo_frame_tag dom_id(task) do %>
+                    <%= render task %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+<% end %>
 

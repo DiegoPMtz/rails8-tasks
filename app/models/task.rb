@@ -6,6 +6,8 @@ class Task < ApplicationRecord
 
   before_validation :default_status
 
+  broadcasts_to ->(task) { "tasks" }, inserts_by: :append
+
 
   private
 
